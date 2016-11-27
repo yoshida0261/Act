@@ -6,6 +6,10 @@ import android.widget.TextView;
 
 import com.starcompany.act.R;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.LayoutInflater;
+
 import java.util.ArrayList;
 
 /**
@@ -19,7 +23,6 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         super(context, 0);
     }
 
-    /*
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // super.getView() は 呼ばない(カスタムビューにしているため)
@@ -43,7 +46,7 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         name.setText(item.name);
 
         return view;
-    }*/
+    }
 
     // 設定されている CustomListItem の ArrayList を返す。
     // 縦横切替などでデータを移行するために使う。

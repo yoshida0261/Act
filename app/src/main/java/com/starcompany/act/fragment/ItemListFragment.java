@@ -5,6 +5,9 @@ import android.support.v4.app.ListFragment;
 
 import com.starcompany.act.R;
 import com.starcompany.act.model.ItemListAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.LayoutInflater;
 
 /**
  * Created by takeshi on 16/11/26.
@@ -52,6 +55,6 @@ public class ItemListFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.item_listfragment, container, false);
+        return inflater.inflate(R.layout.item_list_fragment, container, false);
     }
 }
