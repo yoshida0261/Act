@@ -31,4 +31,5 @@ dependencies {
     annotationProcessor 'com.github.gfx.android.orma:orma-processor:4.1.1'
     compile 'com.github.gfx.android.orma:orma:4.1.1'
 
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }
