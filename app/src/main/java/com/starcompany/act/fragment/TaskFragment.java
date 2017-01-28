@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.starcompany.act.activity.MainActivity;
+import com.starcompany.act.model.Achievement;
+import com.starcompany.act.model.OrmaDatabase;
 import com.starcompany.act.model.Task;
 
 /**
@@ -18,6 +21,8 @@ public class TaskFragment extends ListFragment {
     private static final String TAG = "TaskFragment";
     public TaskFragment(){}
 
+    private OrmaDatabase orma;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
@@ -27,6 +32,10 @@ public class TaskFragment extends ListFragment {
                 android.R.layout.simple_list_item_1,
                 Task.TaskName
         ));
+
+        MainActivity act = (MainActivity)getActivity();
+        orma = act.orma;
+
     }
 
 
@@ -39,6 +48,9 @@ public class TaskFragment extends ListFragment {
         // タップしたitemを保存
 
         // itemを削除
+
+        Achievement achievement = new Achievement();
+        achievement.title = Task.TaskName[position];
 
 
 

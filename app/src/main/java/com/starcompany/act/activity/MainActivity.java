@@ -19,7 +19,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.starcompany.act.R;
-import com.starcompany.act.model.Achievement;
 import com.starcompany.act.model.OrmaDatabase;
 
 public class MainActivity extends AppCompatActivity
@@ -30,6 +29,8 @@ public class MainActivity extends AppCompatActivity
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
+    public OrmaDatabase orma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +62,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        OrmaDatabase orma = OrmaDatabase.builder(this)
-                .build();
+        if(orma == null) {
+            orma = OrmaDatabase.builder(this)
+                    .build();
+        }
 
-        Achievement art = new Achievement();
-        art.title = "test";
-        art.content = "test";
-
-       // long l = orma.insertIntoAchievement(art);
 
 
 

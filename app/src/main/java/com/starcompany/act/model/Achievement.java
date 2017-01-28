@@ -19,6 +19,10 @@ public class Achievement {
     public String title;
 
     @Column
+    public long count;
+
+
+    @Column
     @Nullable
     public String content;
 
