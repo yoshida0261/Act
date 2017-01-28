@@ -65,11 +65,14 @@ public class MainActivity extends AppCompatActivity
                 .build();
 
         Achievement art = new Achievement();
-        art.id = 0;
         art.title = "test";
-        // art.Content = "testtset";
+        art.content = "test";
 
-   //     long ormaid = orma.insertIntoAchievement(null);
+       // long l = orma.insertIntoAchievement(art);
+
+
+
+        //     long ormaid = orma.insertIntoAchievement(null);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
