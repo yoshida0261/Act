@@ -11,15 +11,19 @@ import com.github.gfx.android.orma.annotation.Table;
 public class Achievement {
 
     public static final String TAG = Achievement.class.getSimpleName();
-
+/*
+    @Setter
+    public Achievement(long id, String title, String content, long count){
+        this.title = title;
+        this.content = content;
+        this.count = count;
+    }
+*/
     @PrimaryKey(autoincrement = true)
     public long id;
 
     @Column(indexed = true)
     public String title;
-
-    @Column
-    public long count;
 
 
     @Column
@@ -27,5 +31,6 @@ public class Achievement {
     public String content;
 
     @Column
-    public long createdTimeMillis;
+    public long count;
+
 }

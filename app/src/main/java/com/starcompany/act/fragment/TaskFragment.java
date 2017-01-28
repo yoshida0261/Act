@@ -45,16 +45,25 @@ public class TaskFragment extends ListFragment {
 
         Toast.makeText(v.getContext(), Task.TaskName[position], Toast.LENGTH_SHORT).show();
 
-        // タップしたitemを保存
-
-        // itemを削除
+        //Achievement_Selector selector = orma.selectFromAchievement().titleEq(Task.TaskName[position])
+         //       .orderByTitleDesc();
+        /*
+        Achievement achievement = new Achievement();
+            achievement.title = Task.TaskName[position];
+            achievement.count = 1;
+        achievement.content = "補足とくになし";
+*/
+        //Achievement achievement = new Achievement(position, Task.TaskName[position], "none", 1);
 
         Achievement achievement = new Achievement();
         achievement.title = Task.TaskName[position];
+        achievement.content = "none";
+        achievement.count  = 1;
 
 
+            orma.insertIntoAchievement(achievement);
 
-        Log.i(TAG, "Achivement pos=>" + position + " : id=> " + id + " : Ach=>" + Task.TaskName[position]);
+        Log.i(TAG, "Achivement pos=>" + position + " : id=> " + id + " : Ach=>" + Task.TaskName[position] + " : count=>" + achievement.count);
     }
 
 
