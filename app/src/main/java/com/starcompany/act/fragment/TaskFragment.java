@@ -1,5 +1,6 @@
 package com.starcompany.act.fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -55,15 +56,34 @@ public class TaskFragment extends ListFragment {
 */
         //Achievement achievement = new Achievement(position, Task.TaskName[position], "none", 1);
 
-        Achievement achievement = new Achievement();
-        achievement.title = Task.TaskName[position];
-        achievement.content = "none";
-        achievement.count  = 1;
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+
+                try {
+                    Thread.sleep(1000);
+
+                    orma.migrate(); // may throws SQLiteConstraintException
+
+                    Log.d(TAG, "CRUD:start ------------------------");
+                    Achievement achievement = new Achievement();
+                    achievement.title = Task.TaskName[0];
+                    achievement.content = "none";
+                    achievement.count  = 1;
 
 
-            orma.insertIntoAchievement(achievement);
+                    orma.insertIntoAchievement(achievement);
 
-        Log.i(TAG, "Achivement pos=>" + position + " : id=> " + id + " : Ach=>" + Task.TaskName[position] + " : count=>" + achievement.count);
+
+                    Log.d(TAG, "------------------------");
+                } catch (final Exception e) {
+                    Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
+                return null;
+            }
+        }.execute();
+
+        Log.i(TAG, "Achivement pos=>" + position + " : id=> " + id + " : Ach=>" + Task.TaskName[position]);
     }
 
 
