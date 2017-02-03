@@ -14,9 +14,7 @@ import com.starcompany.act.model.Achievement;
 import com.starcompany.act.model.OrmaDatabase;
 import com.starcompany.act.model.Task;
 
-/**
- * Created by takeshi on 16/12/09.
- */
+
 public class TaskFragment extends ListFragment {
 
     private static final String TAG = "TaskFragment";
