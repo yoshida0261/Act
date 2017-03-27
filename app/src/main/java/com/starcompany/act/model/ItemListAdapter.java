@@ -1,31 +1,52 @@
 package com.starcompany.act.model;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import com.starcompany.act.R;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.LayoutInflater;
-
 import java.util.ArrayList;
 
-/**
- * Created by takeshi on 16/11/26.
- */
-public class ItemListAdapter extends ArrayAdapter<Item> {
-    // 見易さのために定義。普段は直接 getView で指定する。
+
+public class ItemListAdapter extends ArrayAdapter<String> {
+
+    private final Context context;
+    private final String[] values;
+
     private static final int resource = R.layout.custom_listview_item;
 
-    public ItemListAdapter(Context context){
-        super(context, 0);
+    public ItemListAdapter(Context context, String[] values){
+        super(context, -1, values);
+        this.context = context;
+        this.values = values;
+
+
+
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // super.getView() は 呼ばない(カスタムビューにしているため)
+
+        /*
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView = inflater.inflate(R.layout.rowlayout, parent, false);
+        TextView textView = (TextView) rowView.findViewById(R.id.label);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+        textView.setText(values[position]);
+        // change the icon for Windows and iPhone
+        String s = values[position];
+        */
+        /*
+        if (s.startsWith("iPhone")) {
+            imageView.setImageResource(R.drawable.no);
+        } else {
+            imageView.setImageResource(R.drawable.ok);
+        }*/
+
+        /*
         View view;
 
         // テンプレート処理。
@@ -39,13 +60,13 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         // データをgetItemで取る
         Item item = getItem(position);
 
-        // カスタムビューの場合はViewが確実にあるtry-catch は不要ためか。
         TextView id = (TextView) view.findViewById(R.id.id);
         id.setText(item.id);
         TextView name = (TextView) view.findViewById(R.id.name);
         name.setText(item.name);
+*/
 
-        return view;
+        return null;
     }
 
     // 設定されている CustomListItem の ArrayList を返す。
@@ -57,7 +78,7 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         int size = getCount();
         ArrayList<Item> itemList = new ArrayList<Item>(size);
         for (int index = 0; index < size; index++) {
-            itemList.add(getItem(index));
+           // itemList.add(getItem(index));
         }
         return itemList;
     }
@@ -67,12 +88,12 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         // 強制でキャスト。落ちる場合は、設計か実装が間違っている。
         @SuppressWarnings("unchecked")
         ArrayList<Item> itemList = (ArrayList<Item>) parcelableArrayList;
-        super.addAll(itemList);
+        //super.addAll(itemList);
     }
 
     public void add(String id, String name) {
         Item item = new Item(id, name);
-        super.add(item);
+       // super.add(item);
     }
 
     // 削除

@@ -2,16 +2,13 @@ package com.starcompany.act.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.starcompany.act.R;
 import com.starcompany.act.model.ItemListAdapter;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.LayoutInflater;
 
-/**
- * Created by takeshi on 16/11/26.
- */
 public class ItemListFragment extends ListFragment {
 
     private ItemListAdapter adapter;
@@ -23,9 +20,8 @@ public class ItemListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //set adapter
-        adapter = new ItemListAdapter(getActivity());
-        setListAdapter(adapter);
+        //adapter = new ItemListAdapter(getActivity());
+        //setListAdapter(adapter);
     }
 
     @Override
