@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity
 
 
         if(orma == null) {
-            orma = OrmaDatabase.builder(this)
-                    .build();
+         //   orma = OrmaDatabase.builder(this).build();
         }
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.

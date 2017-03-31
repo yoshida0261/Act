@@ -145,6 +145,7 @@ public class TaskFragment extends ListFragment {
         }.execute();
         */
 
+
         Log.i(TAG, "Achivement pos=>" + position + " : id=> " + id + " : Ach=>" + Task.TaskName[position]);
     }
 

@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.starcompany.act.R;
 
