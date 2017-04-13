@@ -96,18 +96,26 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_commitlog) {
+            //TODO commit log アイコンへの変更
+
+            //TODO ログ画面へ遷移
+
+
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            //TODO  達成アイコンが見れるギャラリーにする
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+            //TODO 　設定画面を開く なにを設定するんだか・・
 
-        } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_graph){
+            //TODO グラフ画面へのリンク
+
+        } else if (id == R.id.nav_questtion){
+            // TODO アンケート起動
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

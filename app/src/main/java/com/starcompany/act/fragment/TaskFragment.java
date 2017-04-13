@@ -9,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.starcompany.act.R;
-import com.starcompany.act.activity.MainActivity;
 import com.starcompany.act.model.OrmaDatabase;
 import com.starcompany.act.model.Task;
 
@@ -47,17 +45,18 @@ public class TaskFragment extends ListFragment {
         for (int i = 0; i < values.length; ++i) {
             list.add(values[i]);
         }
-        /*
+        //*
         final StableArrayAdapter adapter = new StableArrayAdapter(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list);
-*/
+/*
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 R.layout.custom_listview_item2, values);
         setListAdapter(adapter);
+*/
         //listview.setAdapter(adapter);
-       // setListAdapter(adapter);
+        setListAdapter(adapter);
 
         /*
         setListAdapter(new ArrayAdapter<String>(
@@ -69,9 +68,10 @@ public class TaskFragment extends ListFragment {
         ));
         */
 
+        /*
         MainActivity act = (MainActivity)getActivity();
         orma = act.orma;
-
+*/
     }
 
 
