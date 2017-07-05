@@ -1,6 +1,7 @@
 package com.starcompany.act.fragment;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -9,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.starcompany.act.activity.MainActivity;
+import com.starcompany.act.model.Achievement;
 import com.starcompany.act.model.OrmaDatabase;
 import com.starcompany.act.model.Task;
 
@@ -68,10 +71,9 @@ public class TaskFragment extends ListFragment {
         ));
         */
 
-        /*
+
         MainActivity act = (MainActivity)getActivity();
         orma = act.orma;
-*/
     }
 
 
@@ -108,15 +110,14 @@ public class TaskFragment extends ListFragment {
 
         //Achievement_Selector selector = orma.selectFromAchievement().titleEq(Task.TaskName[position])
          //       .orderByTitleDesc();
-        /*
+
+        // TODO 同じIDのタスクを取得する
+
+        // TODO 更新処理
         Achievement achievement = new Achievement();
             achievement.title = Task.TaskName[position];
             achievement.count = 1;
         achievement.content = "補足とくになし";
-*/
-        //Achievement achievement = new Achievement(position, Task.TaskName[position], "none", 1);
-
-        /*
         AsyncTask task = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
@@ -143,7 +144,7 @@ public class TaskFragment extends ListFragment {
                 return null;
             }
         }.execute();
-        */
+
 
 
         Log.i(TAG, "Achivement pos=>" + position + " : id=> " + id + " : Ach=>" + Task.TaskName[position]);

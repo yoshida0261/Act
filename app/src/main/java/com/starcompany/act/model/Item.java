@@ -3,9 +3,7 @@ package com.starcompany.act.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by takeshi on 16/11/26.
- */
+
 public class Item implements Parcelable {
 
     public String id;
