@@ -30,23 +30,11 @@ public class TaskFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
-
-
         super.onActivityCreated(savedInstanceState);
 
-
-        //final ListView listview = (ListView) getActivity().findViewById(R.id.listview);
-
-
-        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile" };
-
         final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
+        for (int i = 0; i < Task.TaskName.length; ++i) {
+            list.add(Task.TaskName[i]);
         }
         //*
         final StableArrayAdapter adapter = new StableArrayAdapter(
