@@ -1,5 +1,6 @@
 package com.starcompany.act.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,11 +27,14 @@ public class TaskFragment extends ListFragment {
     public TaskFragment(){}
 
     private OrmaDatabase orma;
+    private Activity activity;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+
+        //activity =
 
         final ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < Task.TaskName.length; ++i) {
@@ -104,8 +108,13 @@ public class TaskFragment extends ListFragment {
         // TODO 更新処理
         Achievement achievement = new Achievement();
             achievement.title = Task.TaskName[position];
-            achievement.count = 1;
         achievement.content = "補足とくになし";
+
+     //   AsyncTaskParamsThread thread = new AsyncTaskParamsThread(getActivity());
+
+// 非同期(スレッド)処理の実行
+      //  thread.execute("http://www.google.com", "http://www.yahoo.co.jp");
+
         AsyncTask task = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
@@ -127,7 +136,7 @@ public class TaskFragment extends ListFragment {
 
                     Log.d(TAG, "------------------------");
                 } catch (final Exception e) {
-                    Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
                 return null;
             }
