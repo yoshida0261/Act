@@ -23,6 +23,14 @@ public class AsyncTaskParamsThread extends AsyncTask <String, Void, String>{
         String url2 = params[1];
         String ret = "";
 
+        /*
+         *
+          * Achievement achievement = new Achievement();
+                    achievement.title = Task.TaskName[0];
+                    achievement.content = "none";
+                    achievement.count  = 1;
+
+         */
         try {
             // Sleep処理（例：HTTP通信）
             Thread.sleep(1000);
