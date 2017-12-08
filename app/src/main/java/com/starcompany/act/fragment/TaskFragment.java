@@ -29,19 +29,23 @@ public class TaskFragment extends ListFragment {
     private OrmaDatabase orma;
     private Activity activity;
 
+    private int tappedPosition = 0;
+
+    private ArrayList<String> list;
+    private StableArrayAdapter adapter;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
 
-        //activity =
 
-        final ArrayList<String> list = new ArrayList<String>();
+        list = new ArrayList<String>();
         for (int i = 0; i < Task.TaskName.length; ++i) {
             list.add(Task.TaskName[i]);
         }
-        //*
-        final StableArrayAdapter adapter = new StableArrayAdapter(
+
+        adapter = new StableArrayAdapter(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list);
@@ -68,6 +72,14 @@ public class TaskFragment extends ListFragment {
         orma = act.orma;
     }
 
+    private void deleteTask()
+    {
+        int position = tappedPosition;
+        list.remove(position);
+        adapter.notifyDataSetChanged();
+
+    }
+
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 
@@ -83,6 +95,7 @@ public class TaskFragment extends ListFragment {
 
         @Override
         public long getItemId(int position) {
+            tappedPosition = position;
             String item = getItem(position);
             return mIdMap.get(item);
         }
@@ -98,11 +111,14 @@ public class TaskFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-        Toast.makeText(v.getContext(), Task.TaskName[position], Toast.LENGTH_SHORT).show();
+        String taskName = list.get(position);
+        Toast.makeText(v.getContext(), taskName, Toast.LENGTH_SHORT).show();
 
         //Achievement_Selector selector = orma.selectFromAchievement().titleEq(Task.TaskName[position])
          //       .orderByTitleDesc();
 
+
+        this.deleteTask();
         // TODO 同じIDのタスクを取得する
 
         // TODO 更新処理
