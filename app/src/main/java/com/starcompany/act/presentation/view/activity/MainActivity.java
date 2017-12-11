@@ -1,10 +1,10 @@
-package com.starcompany.act.activity;
+package com.starcompany.act.presentation.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.starcompany.act.R;
-import com.starcompany.act.model.OrmaDatabase;
+import com.starcompany.act.presentation.model.OrmaDatabase;
 
 public class MainActivity extends AppCompatActivity {
 

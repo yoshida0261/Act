@@ -1,4 +1,4 @@
-package com.starcompany.act.model;
+package com.starcompany.act.presentation.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

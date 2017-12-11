@@ -1,4 +1,4 @@
-package com.starcompany.act.fragment;
+package com.starcompany.act.presentation.view.fragment;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,10 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.starcompany.act.activity.MainActivity;
-import com.starcompany.act.model.Achievement;
+import com.starcompany.act.presentation.view.activity.MainActivity;
+import com.starcompany.act.presentation.model.Achievement;
 import com.starcompany.act.model.OrmaDatabase;
-import com.starcompany.act.model.Task;
+import com.starcompany.act.presentation.model.Task;
 
 import java.util.ArrayList;
 import java.util.HashMap;

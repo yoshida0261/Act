@@ -1,4 +1,4 @@
-package com.starcompany.act.model;
+package com.starcompany.act.presentation.model;
 
 public class Task {
     public final static  String[] TaskName={

@@ -8,11 +8,11 @@
 
     android:orientation="vertical"
     tools:showIn="@layout/app_bar_main"
-    tools:context=".activity.MainActivity">
+    tools:context=".presentation.view.activity.MainActivity">
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tasklistFragment"
-        android:name="com.starcompany.act.fragment.TaskFragment"></fragment>
+        android:name="com.starcompany.act.presentation.view.fragment.TaskFragment"></fragment>
 
 </RelativeLayout>
