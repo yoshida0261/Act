@@ -11,14 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.starcompany.act.presentation.view.activity.MainActivity;
 import com.starcompany.act.presentation.model.Achievement;
-import com.starcompany.act.model.OrmaDatabase;
+import com.starcompany.act.presentation.model.OrmaDatabase;
 import com.starcompany.act.presentation.model.Task;
+import com.starcompany.act.presentation.view.activity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 
 
 public class TaskFragment extends ListFragment {
@@ -38,6 +39,36 @@ public class TaskFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+
+        MainActivity act = (MainActivity)getActivity();
+        orma = act.orma;
+
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+
+                try {
+                    Thread.sleep(1000);
+
+                    orma.migrate(); // may throws SQLiteConstraintException
+
+                    List<Achievement> titleList =   orma.selectFromAchievement()
+                            .orderByTitleAsc()
+                            .toList();
+
+                    if(titleList.size() == 0){
+                        Toast.makeText(getContext(), "Data  NotFound", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                    Log.d(TAG, "------------------------");
+                } catch (final Exception e) {
+                    // Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
+                return null;
+            }
+        }.execute();
+
 
 
         list = new ArrayList<String>();
@@ -68,8 +99,6 @@ public class TaskFragment extends ListFragment {
         */
 
 
-        MainActivity act = (MainActivity)getActivity();
-        orma = act.orma;
     }
 
     private void deleteTask()
