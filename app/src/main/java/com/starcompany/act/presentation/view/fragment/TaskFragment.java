@@ -43,6 +43,7 @@ public class TaskFragment extends ListFragment {
         MainActivity act = (MainActivity)getActivity();
         orma = act.orma;
 
+        /*
         AsyncTask task = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
@@ -70,6 +71,7 @@ public class TaskFragment extends ListFragment {
         }.execute();
 
 
+*/
 
         list = new ArrayList<String>();
         for (int i = 0; i < Task.TaskName.length; ++i) {
@@ -80,23 +82,7 @@ public class TaskFragment extends ListFragment {
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list);
-/*
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                R.layout.custom_listview_item2, values);
         setListAdapter(adapter);
-*/
-        //listview.setAdapter(adapter);
-        setListAdapter(adapter);
-
-        /*
-        setListAdapter(new ArrayAdapter<String>(
-                getActivity(),
-                //android.R.layout.simple_list_item_1,
-                R.layout.custom_listview_item2,
-
-                Task.TaskName
-        ));
-        */
 
 
     }
@@ -107,6 +93,28 @@ public class TaskFragment extends ListFragment {
         list.remove(position);
         adapter.notifyDataSetChanged();
 
+    }
+
+    private void dailyClearTask()
+    {
+
+        if(list.size() == 0){
+
+            DailyDialogFragment d = new DailyDialogFragment();
+
+            /*
+
+            final MyDialogFragment dialog = new MyDialogFragment();
+        dialog.setTargetFragment(this, 100);
+        dialog.setArguments(bundle("aaa", "bbb", "ccc", "ddd"));
+        dialog.show(getChildFragmentManager(), "my_dialog");
+             */
+            d.setTargetFragment(this, 100);
+            d.show(getChildFragmentManager(), "my_dialog");
+            //d.onCreateDialog(null);
+            //Toast.makeText(v.getContext(), "やったね！", Toast.LENGTH_LONG).show();
+
+        }
     }
 
 
@@ -148,17 +156,14 @@ public class TaskFragment extends ListFragment {
 
 
         this.deleteTask();
+
+        this.dailyClearTask();
         // TODO 同じIDのタスクを取得する
 
         // TODO 更新処理
         Achievement achievement = new Achievement();
             achievement.title = Task.TaskName[position];
         achievement.content = "補足とくになし";
-
-     //   AsyncTaskParamsThread thread = new AsyncTaskParamsThread(getActivity());
-
-// 非同期(スレッド)処理の実行
-      //  thread.execute("http://www.google.com", "http://www.yahoo.co.jp");
 
         AsyncTask task = new AsyncTask() {
             @Override
